@@ -6,6 +6,7 @@ using namespace std;
 void printMatris( int[][2], int);
 void sum(int [][2], int [][2], int);
 void subtraction(int [][2], int [][2], int);
+void multiplication(int [][2], int [][2], int);
 
 int main()
 {
@@ -18,6 +19,7 @@ int main()
 
     sum(matris1, matris2, n);
     subtraction(matris1, matris2, n);
+    multiplication(matris1, matris2, n);
  
     return 0;
 }
@@ -58,3 +60,21 @@ void subtraction(int m1[][2], int m2[][2], int n)
     printMatris(result, 2);
 }
 
+void multiplication(int m1[][2], int m2[][2], int n)
+{
+    int result[2][2] = {0};
+
+    for(int i = 0; i < n; i++)
+    {
+        for(int j = 0; j < n; j++)
+        {
+            result[i][j] = 0;
+
+            for(int k = 0; k < n; k++)
+                result[i][j] += m1[i][k] * m2[k][j];
+        }
+    }
+ 
+    cout << "Result of multiplication: " << endl;
+    printMatris(result, 2);
+}
